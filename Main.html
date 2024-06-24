@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Fruits</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .slideshow {
+            width: 100%;
+            /* Set slideshow width to cover the complete screen */
+            height: 100vh;
+            /* Adjusted to touch the bottom of the screen */
+            position: relative;
+            overflow: hidden;
+            margin: 0 auto;
+        }
+
+        .slide {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
+        }
+
+        .slide.active {
+            opacity: 1;
+        }
+
+        .slide-1 {
+            background: radial-gradient( rgb(230, 217, 107),rgb(243, 235, 171),rgba(255, 238, 87, 1));
+            
+
+        }
+
+        .slide-2 {
+            background: linear-gradient(45deg, rgba(206, 183, 180, 1), white, rgba(251, 201, 201, 1));
+            
+        }
+
+        .slide-3 {
+            background: linear-gradient(45deg, rgba(251, 201, 201, 1), rgb(236, 225, 225), rgb(218, 119, 119));
+            
+        }
+
+        .slide-4 {
+            background: linear-gradient(45deg, rgba(220, 183, 242, 1), white, rgb(173, 135, 194));
+            
+        }
+
+        .slide-5 {
+            background: linear-gradient(45deg, rgb(140, 168, 104), white, rgb(176, 200, 145));
+        }
+
+        .slideshow-controls {
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+
+        .slideshow-controls .control-icon {
+            font-size: 30px;
+            cursor: pointer;
+            color: black;
+            /* Arrow color */
+            background-color: rgba(255, 255, 255, 0.7);
+            /* Translucent white background */
+            border-radius: 50%;
+            /* Circle shape */
+            padding: 10px;
+            /* Adjust padding as needed */
+        }
+
+        .slideshow-controls .control-icon:hover {
+            background-color: rgba(255, 255, 255, 0.9);
+            /* Adjust the hover background color if desired */
+        }
+
+        .slideshow-controls .control-icon.left-arrow {
+            margin-right: 10px;
+            /* Adjust margin between the arrows */
+        }
+
+        .slideshow-controls .control-icon.right-arrow {
+            margin-left: 10px;
+            /* Adjust margin between the arrows */
+        }
+
+        .slide-1 h2,
+        .slide-1 p,
+        .slide-1 h3 {
+            margin-left: 200px;
+        }
+
+        .slide-1 p {
+            margin-right: 600px;
+            font-family: 'Poppins';
+            font-style: normal;
+            font-weight: 400;
+            font-size: 24px;
+            line-height: 36px;
+            letter-spacing: -0.02em;
+            color: rgba(0, 0, 0, 0.7);
+        }
+
+        .slide-1 h3 {
+            margin-top: 0px;
+            display: inline-block;
+            margin-right: 650px;
+            font-family: 'Poppins';
+            font-style: normal;
+            font-weight: 400;
+            font-size: 24px;
+            line-height: 36px;
+            letter-spacing: -0.02em;
+            color: rgba(0, 0, 0, 0.7);
+            background-color: aliceblue;
+            border-radius: 50px;
+        }
+
+        .slide-1 h2 {
+            margin-bottom: 10px;
+            margin-top: 70px;
+            width: 689px;
+            height: 104px;
+
+            font-family: 'Poppins';
+            font-style: normal;
+            font-weight: 700;
+            font-size: 106px;
+            line-height: 98%;
+            letter-spacing: -0.02em;
+            color: rgba(0, 0, 0, 0.7);
+        }
+
+        .slide-1 img {
+            position: absolute;
+            right: 150px;
+            top: 150px;
+            height: 400px;
+        }
+
+        .slide-2 h2 {
+            margin-bottom: 10px;
+            margin-top: 70px;
+            width: 689px;
+            height: 104px;
+            margin-left: 200px;
+            font-family: 'Poppins';
+            font-style: normal;
+            font-weight: 700;
+            font-size: 106px;
+            line-height: 98%;
+            letter-spacing: -0.02em;
+            color: rgba(0, 0, 0, 0.7);
+        }
+
+        .slide-2 h3 {
+            margin-left: 200px;
+            margin-top: 0px;
+            display: inline-block;
+            margin-right: 650px;
+            font-family: 'Poppins';
+            font-style: normal;
+            font-weight: 400;
+            font-size: 24px;
+            line-height: 36px;
+            letter-spacing: -0.02em;
+            color: rgba(0, 0, 0, 0.7);
+            background-color: aliceblue;
+            border-radius: 50px;
+        }
+
+        .slide-2 p {
+            margin-left: 200px;
+            margin-right: 600px;
+            font-family: 'Poppins';
+            font-style: normal;
+            font-weight: 400;
+            font-size: 24px;
+            line-height: 36px;
+            letter-spacing: -0.02em;
+            color: rgba(0, 0, 0, 0.7);
+        }
+
+        .slide-2 img {
+            position: absolute;
+            right: 150px;
+            top: 150px;
+            height: 400px;
+        }
+
+        .slide-3 h2 {
+            margin-bottom: 10px;
+            margin-top: 70px;
+            width: 689px;
+            height: 104px;
+            margin-left: 200px;
+            font-family: 'Poppins';
+            font-style: normal;
+            font-weight: 700;
+            font-size: 106px;
+            line-height: 98%;
+            letter-spacing: -0.02em;
+            color: rgba(0, 0, 0, 0.7);
+        }
+
+        .slide-3 h3 {
+            margin-left: 200px;
+            margin-top: 0px;
+            display: inline-block;
+            margin-right: 650px;
+            font-family: 'Poppins';
+            font-style: normal;
+            font-weight: 400;
+            font-size: 24px;
+            line-height: 36px;
+            letter-spacing: -0.02em;
+            color: rgba(0, 0, 0, 0.7);
+            background-color: aliceblue;
+            border-radius: 50px;
+        }
+
+        .slide-3 p {
+            margin-left: 200px;
+            margin-right: 600px;
+            font-family: 'Poppins';
+            font-style: normal;
+            font-weight: 400;
+            font-size: 24px;
+            line-height: 36px;
+            letter-spacing: -0.02em;
+            color: rgba(0, 0, 0, 0.7);
+        }
+
+        .slide-3 img {
+            position: absolute;
+            right: 150px;
+            top: 150px;
+            height: 400px;
+        }
+
+        .slide-4 h2 {
+            margin-bottom: 10px;
+            margin-top: 70px;
+            width: 689px;
+            height: 104px;
+            margin-left: 200px;
+            font-family: 'Poppins';
+            font-style: normal;
+            font-weight: 700;
+            font-size: 106px;
+            line-height: 98%;
+            letter-spacing: -0.02em;
+            color: rgba(0, 0, 0, 0.7);
+        }
+
+        .slide-4 h3 {
+            margin-left: 200px;
+            margin-top: 0px;
+            display: inline-block;
+            margin-right: 650px;
+            font-family: 'Poppins';
+            font-style: normal;
+            font-weight: 400;
+            font-size: 24px;
+            line-height: 36px;
+            letter-spacing: -0.02em;
+            color: rgba(0, 0, 0, 0.7);
+            background-color: aliceblue;
+            border-radius: 50px;
+        }
+
+        .slide-4 p {
+            margin-left: 200px;
+            margin-right: 600px;
+            font-family: 'Poppins';
+            font-style: normal;
+            font-weight: 400;
+            font-size: 24px;
+            line-height: 36px;
+            letter-spacing: -0.02em;
+            color: rgba(0, 0, 0, 0.7);
+        }
+
+        .slide-4 img {
+            position: absolute;
+            right: 150px;
+            top: 150px;
+            height: 400px;
+        }
+
+        .slide-5 h2 {
+            margin-bottom: 10px;
+            margin-top: 70px;
+            width: 689px;
+            height: 104px;
+            margin-left: 200px;
+            font-family: 'Poppins';
+            font-style: normal;
+            font-weight: 700;
+            font-size: 106px;
+            line-height: 98%;
+            letter-spacing: -0.02em;
+            color: rgba(0, 0, 0, 0.7);
+        }
+
+        .slide-5 h3 {
+            margin-left: 200px;
+            margin-top: 0px;
+            display: inline-block;
+            margin-right: 650px;
+            font-family: 'Poppins';
+            font-style: normal;
+            font-weight: 400;
+            font-size: 24px;
+            line-height: 36px;
+            letter-spacing: -0.02em;
+            color: rgba(0, 0, 0, 0.7);
+            background-color: aliceblue;
+            border-radius: 50px;
+        }
+
+        .slide-5 p {
+            margin-left: 200px;
+            margin-right: 600px;
+            font-family: 'Poppins';
+            font-style: normal;
+            font-weight: 400;
+            font-size: 24px;
+            line-height: 36px;
+            letter-spacing: -0.02em;
+            color: rgba(0, 0, 0, 0.7);
+        }
+
+        .slide-5 img {
+            position: absolute;
+            right: 150px;
+            top: 150px;
+            height: 400px;
+        }
+
+        
+
+    </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            
+            var slides = document.querySelectorAll('.slide');
+            var currentSlide = 0; // Initial slide index
+
+            function showSlide(index) {
+                slides[currentSlide].classList.remove('active');
+                slides[index].classList.add('active');
+                currentSlide = index;
+            }
+
+            function nextSlide() {
+                var nextSlideIndex = currentSlide + 1;
+                if (nextSlideIndex >= slides.length) {
+                    nextSlideIndex = 0; // Loop back to the first slide
+                }
+                showSlide(nextSlideIndex);
+            }
+
+            function prevSlide() {
+                var prevSlideIndex = currentSlide - 1;
+                if (prevSlideIndex < 0) {
+                    prevSlideIndex = slides.length - 1; // Loop back to the last slide
+                }
+                showSlide(prevSlideIndex);
+            }
+
+            function moveToNextTab() {
+                nextSlide();
+            }
+
+            document.addEventListener('click', moveToNextTab);
+
+            var tabs = document.querySelectorAll('.nav-tab');
+            var activeTab = 0; // Initial active tab index
+
+            function setActiveTab(index) {
+                tabs[activeTab].classList.remove('active-tab');
+                tabs[activeTab].classList.remove('tab-two');
+                tabs[activeTab].classList.remove('tab-three');
+                tabs[activeTab].classList.remove('tab-four');
+                tabs[activeTab].classList.remove('tab-five');
+                tabs[index].classList.add('active-tab');
+                if (index === 1) {
+                    tabs[index].classList.add('tab-two');
+                } else if (index === 2) {
+                    tabs[index].classList.add('tab-three');
+                }
+                else if (index === 3) {
+                    tabs[index].classList.add('tab-four');
+                }
+                else if (index === 4) {
+                    tabs[index].classList.add('tab-five');
+                }
+                activeTab = index;
+            }
+
+            function moveToNextTab() {
+                var nextTab = activeTab + 1;
+                if (nextTab < tabs.length) {
+                    setActiveTab(nextTab);
+                } else {
+                    setActiveTab(0); // Loop back to the first tab
+                }
+                nextSlide();
+            }
+
+            document.addEventListener('click', moveToNextTab);
+
+            var tasteNavItem = document.createElement('div');
+            tasteNavItem.classList.add('nav-tab');
+            tasteNavItem.textContent = 'Taste Drive';
+            tasteNavItem.style.backgroundColor = 'rgba(255, 238, 87, 1)';
+            document.querySelector('.nav-tabs').appendChild(tasteNavItem);
+
+            var colorIndex = 0;
+            var colors = ['rgba(206, 183, 180, 1)', 'rgba(251, 201, 201, 1)', 'rgba(220, 183, 242, 1)', 'rgb(140, 168, 104)', 'rgba(255, 238, 87, 1)'];
+
+            function changeBackgroundColor() {
+                tasteNavItem.style.backgroundColor = colors[colorIndex];
+                colorIndex = (colorIndex + 1) % colors.length;
+            }
+
+            tasteNavItem.addEventListener('click', changeBackgroundColor);
+            document.addEventListener('click', changeBackgroundColor);
+        });
+
+
+    </script>
+</head>
+
+<body>
+
+
+    <div class="header">
+        <img src="1.png">
+        <div class="nav-tabs">
+            <div class="nav-tab active-tab">Banana</div>
+            <div class="nav-tab">Coconut</div>
+            <div class="nav-tab">Strawberry</div>
+            <div class="nav-tab">Blackberry</div>
+            <div class="nav-tab">Kiwi</div>
+
+            <!-- Add more tabs as needed -->
+        </div>
+    </div>
+    <div class="slideshow">
+        <div class="slide slide-1 active">
+            <!-- Slide 1 content -->
+
+            <h2>Banana</h2>
+            <p>Bananas are a popular tropical fruit known for their distinctive yellow color and sweet taste.
+                They are botanically classified as berries and grow in clusters on large herbaceous plants.
+                Bananas are rich in essential nutrients such as potassium, vitamin C,
+                and dietary fiber, making them a convenient and healthy snack option for athletes and
+                individuals of all ages.</p>
+            <h3>&nbsp;&nbsp;Taste drive &nbsp;&nbsp; </h3>
+            <img src="2.png" alt="Banana Image">
+        </div>
+        <div class="slide slide-2">
+            <!-- Slide 2 content -->
+            <h2>Coconut</h2>
+            <p>Coconuts are tropical fruits with a hard outer husk, a tough shell, and a deliciously sweet, creamy flesh
+                inside.
+                They are widely known for their versatility, providing coconut water, milk, oil, and grated coconut for
+                culinary use.
+                Coconuts are a rich source of healthy fats, fiber, and essential minerals, making them a nutritious
+                addition to various dishes and beverages.</p>
+            <h3>&nbsp;&nbsp;Taste drive &nbsp;&nbsp; </h3>
+            <img src="3.png" alt="Coconut Image">
+        </div>
+        <div class="slide slide-3">
+            <!-- Slide 3 content -->
+            <h2>Strawberry</h2>
+            <p>Strawberries are vibrant red fruits with a sweet and slightly tart flavor. They are a member of the rose
+                family and are known for their juicy texture and small seeds that cover their surface. Packed with
+                antioxidants, vitamins, and dietary fiber, strawberries are not only delicious
+                but also offer numerous health benefits.</p>
+            <h3>&nbsp;&nbsp;Taste drive &nbsp;&nbsp; </h3>
+            <img src="4.png" alt="Coconut Image">
+        </div>
+        <div class="slide slide-4">
+            <!-- Slide 3 content -->
+            <h2>Blackberry</h2>
+            <p>Blackberries are succulent fruits that display a captivating deep purple color and a harmonious blend of
+                sweetness and tanginess. As members of the rose family, blackberries are recognized for their juicy
+                texture
+                and small, delicate seeds that adorn their surface. It burst with antioxidants, vitamins, and
+                dietary fiber./p>
+            <h3>&nbsp;&nbsp;Taste drive &nbsp;&nbsp; </h3>
+            <img src="5.png" alt="Coconut Image">
+        </div>
+        <div class="slide slide-5">
+            <!-- Slide 3 content -->
+            <h2>Kiwi</h2>
+            <p>Kiwi, also known as the Chinese gooseberry, is a remarkable fruit that captivates with its vibrant green
+                flesh, refreshing sweetness, and subtle tartness. Originating from China and now cultivated in various
+                parts
+                of the world, kiwis are small, oval-shaped fruits with a fuzzy brown exterior that encases a succulent,
+                emerald green interior adorned with tiny black seeds.</p>
+            <h3>&nbsp;&nbsp;Taste drive &nbsp;&nbsp; </h3>
+            <img src="6.png" alt="Coconut Image">
+        </div>
+        <!-- Add more slides as needed -->
+        <div class="slideshow-controls">
+            <div class="control-icon left-arrow" onclick="prevSlide()">&larr;</div>
+            <div class="control-icon right-arrow" onclick="nextSlide()">&rarr;</div>
+        </div>
+    </div>
+</body>
+
+</html>
